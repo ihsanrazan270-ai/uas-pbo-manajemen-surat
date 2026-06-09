@@ -1,5 +1,8 @@
+import view.DashboardFrame;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Aplikasi Manajemen Surat");
+        DashboardFrame frame = new DashboardFrame();
+        frame.setVisible(true);
     }
 }
