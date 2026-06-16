@@ -1,15 +1,34 @@
 package model;
 
-public class SuratKeluar extends Surat {
+public class SuratKeluar {
 
-    private String penerima;
+    private String nomorSurat;
+    private String tujuan;
+    private String perihal;
+    private String tanggal;
 
-    public SuratKeluar(String nomor, String tanggal, String perihal, String penerima) {
-        super(nomor, tanggal, perihal);
-        this.penerima = penerima;
+    public SuratKeluar(String nomorSurat, String tujuan,
+                       String perihal, String tanggal) {
+
+        this.nomorSurat = nomorSurat;
+        this.tujuan = tujuan;
+        this.perihal = perihal;
+        this.tanggal = tanggal;
     }
 
-    public String getPenerima() {
-        return penerima;
+    public String getNomorSurat() {
+        return nomorSurat;
+    }
+
+    public String getTujuan() {
+        return tujuan;
+    }
+
+    public String getPerihal() {
+        return perihal;
+    }
+
+    public String getTanggal() {
+        return tanggal;
     }
 }

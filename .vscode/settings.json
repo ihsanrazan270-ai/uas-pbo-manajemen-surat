@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "lib\\itextpdf-5.5.13.3.jar",
+        "c:\\Users\\US3R\\uas-pbo-manajemen-surat\\src\\lib\\itextpdf-5.5.13.3.jar"
+    ]
+}
