@@ -1,31 +1,101 @@
 package view;
-
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class DashboardFrame extends JFrame {
 
     public DashboardFrame() {
+
         setTitle("Sistem Manajemen Surat");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(900, 500);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1, 10, 10));
+        String[] kolom = {
+            "ID",
+            "Nomor Surat",
+            "Pengirim",
+            "Perihal",
+            "Tanggal"
+        };
 
-        JButton btnMasuk = new JButton("Surat Masuk");
-        JButton btnKeluar = new JButton("Surat Keluar");
-        JButton btnFilter = new JButton("Filter");
-        JButton btnSorting = new JButton("Sorting Tanggal");
-        JButton btnPdf = new JButton("Export PDF");
+        DefaultTableModel model = new DefaultTableModel(kolom, 0);
+        model.addRow(new Object[]{
+    1,
+    "SM001",
+    "BEM Universitas",
+    "Undangan Rapat",
+    "2026-06-10"
+});
 
-        panel.add(btnMasuk);
-        panel.add(btnKeluar);
-        panel.add(btnFilter);
-        panel.add(btnSorting);
-        panel.add(btnPdf);
+model.addRow(new Object[]{
+    2,
+    "SM002",
+    "HIMA Informatika",
+    "Proposal Kegiatan",
+    "2026-06-12"
+});
+        JTable tabel = new JTable(model);
+        
 
-        add(panel);
+        JButton btnTambah = new JButton("Tambah");
+        btnTambah.addActionListener(e -> {
+
+    String nomor = JOptionPane.showInputDialog("Nomor Surat");
+    String pengirim = JOptionPane.showInputDialog("Pengirim");
+    String perihal = JOptionPane.showInputDialog("Perihal");
+    String tanggal = JOptionPane.showInputDialog("Tanggal (YYYY-MM-DD)");
+
+    model.addRow(new Object[]{
+        model.getRowCount() + 1,
+        nomor,
+        pengirim,
+        perihal,
+        tanggal
+    });
+
+});
+        JButton btnCari = new JButton("Cari");
+        btnCari.addActionListener(e -> {
+
+    String cari = JOptionPane.showInputDialog("Cari Pengirim");
+
+    for (int i = 0; i < model.getRowCount(); i++) {
+
+        String pengirim =
+            model.getValueAt(i, 2).toString();
+
+        if (pengirim.equalsIgnoreCase(cari)) {
+
+            tabel.setRowSelectionInterval(i, i);
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Data ditemukan"
+            );
+
+            return;
+        }
+    }
+
+    JOptionPane.showMessageDialog(
+        this,
+        "Data tidak ditemukan"
+    );
+
+});
+        JButton btnSorting = new JButton("Sorting");
+        JButton btnPDF = new JButton("Export PDF");
+
+        JPanel panelAtas = new JPanel();
+
+        panelAtas.add(btnTambah);
+        panelAtas.add(btnCari);
+        panelAtas.add(btnSorting);
+        panelAtas.add(btnPDF);
+
+        add(panelAtas, BorderLayout.NORTH);
+        add(new JScrollPane(tabel), BorderLayout.CENTER);
     }
 }
