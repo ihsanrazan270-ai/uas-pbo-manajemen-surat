@@ -217,7 +217,7 @@ CREATE TABLE surat (
 ## Anggota Kelompok
 
 - razan muhammad ihsan - 242502040012
-- muhamad iswahyudi- 25240204
+- muhamad iswahyudi- 252402040049
 - muhamad haikal - 24250204
 
 ---
