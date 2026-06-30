@@ -218,7 +218,7 @@ CREATE TABLE surat (
 
 - razan muhammad ihsan - 242502040012
 - muhamad iswahyudi- 252402040049
-- muhamad haikal - 24250204
+- muhammad haikal hizriyan achamad - 242502040109
 
 ---
 
